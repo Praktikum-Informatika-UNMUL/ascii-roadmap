@@ -41,6 +41,6 @@
     "vite-plugin-pwa": "^1.2.0"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx,js,jsx}": "biome lint --write"
+    "src/**/*.{ts,tsx,js,jsx}": "biome check --write"
   }
 }
