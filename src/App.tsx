@@ -3,6 +3,9 @@ import { Route, Routes } from 'react-router';
 import KoorRoadmap from './components/roadmaps/koor-roadmap';
 import PengurusRoadmap from './components/roadmaps/pengurus-roadmap';
 import Navbar from './components/shared/navbar';
+import TemplateChatsAslab from './components/template-chats/aslab';
+import TemplateChatsKoordinator from './components/template-chats/koordinator';
+import TemplateChatsPengurus from './components/template-chats/pengurus';
 import Home from './pages/home';
 import Roadmaps from './pages/roadmaps';
 import TemplateChat from './pages/template-chat';
@@ -19,6 +22,18 @@ function App() {
           <Route path='/roadmap/pengurus' element={<PengurusRoadmap />} />
           <Route path='/roadmap/koordinator' element={<KoorRoadmap />} />
           <Route path='/template-chat' element={<TemplateChat />} />
+          <Route
+            path='/template-chat/pengurus'
+            element={<TemplateChatsPengurus />}
+          />
+          <Route
+            path='/template-chat/koordinator'
+            element={<TemplateChatsKoordinator />}
+          />
+          <Route
+            path='/template-chat/asisten-lab'
+            element={<TemplateChatsAslab />}
+          />
         </Routes>
       </div>
     </>
