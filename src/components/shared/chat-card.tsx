@@ -1,4 +1,4 @@
-import { Check, Copy } from 'lucide-react';
+import { Check, Copy, MessageSquareText } from 'lucide-react';
 import { useState } from 'react';
 import {
   Accordion,
@@ -21,25 +21,35 @@ export function ChatCard({ title, description, template }: ChatCardItem) {
     <Accordion
       type='single'
       collapsible
-      className='border bg-background px-4 rounded-md mt-2'
+      className='group/card rounded-xl border border-border/60 bg-card mt-3 overflow-hidden transition-colors hover:border-primary/20'
     >
-      <AccordionItem value={title}>
-        <AccordionTrigger>{title}</AccordionTrigger>
-        <AccordionContent className='text-left'>
-          <p className='mb-2'>{description}</p>
-          <pre className='bg-secondary p-4 rounded-md overflow-x-auto'>
+      <AccordionItem value={title} className='border-none'>
+        <AccordionTrigger className='px-5 py-4 hover:no-underline'>
+          <span className='flex items-center gap-3 text-left'>
+            <MessageSquareText className='w-4 h-4 text-primary shrink-0' />
+            <span className='font-semibold'>{title}</span>
+          </span>
+        </AccordionTrigger>
+        <AccordionContent className='px-5 pb-5'>
+          <p className='text-sm text-muted-foreground mb-3'>{description}</p>
+          <pre className='bg-secondary/50 border border-border/40 p-4 rounded-lg overflow-x-auto text-sm leading-relaxed'>
             <code>{template}</code>
           </pre>
-          <div className='mt-4 text-right'>
-            <Button onClick={handleCopy}>
+          <div className='mt-4 flex justify-end'>
+            <Button
+              onClick={handleCopy}
+              size='sm'
+              variant={copied ? 'default' : 'outline'}
+              className='transition-all'
+            >
               {copied ? (
                 <>
-                  <Check />
+                  <Check className='w-3.5 h-3.5' />
                   Copied!
                 </>
               ) : (
                 <>
-                  <Copy />
+                  <Copy className='w-3.5 h-3.5' />
                   Copy Template
                 </>
               )}
