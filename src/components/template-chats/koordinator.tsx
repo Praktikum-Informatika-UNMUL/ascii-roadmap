@@ -1,23 +1,31 @@
+import { BookOpen } from 'lucide-react';
 import { TEMPLATE_CHAT_KOORDINATOR } from '@/contants/template-chat-koordinator';
 import { ChatCard } from '../shared/chat-card';
 
 export default function TemplateChatsKoordinator() {
   return (
-    <div>
-      <h1 className='text-2xl text-center font-bold mb-2'>
-        Template Chat Koordinator Mata Kuliah
-      </h1>
-      <p className='text-center mb-8'>
-        Biar gk bingung mau ngechat, gunakan template chat ini.
-      </p>
-      {TEMPLATE_CHAT_KOORDINATOR.map((template) => (
-        <ChatCard
-          key={template.title}
-          title={template.title}
-          description={template.description}
-          template={template.template}
-        />
-      ))}
+    <div className='py-8'>
+      <div className='text-center space-y-2 mb-8'>
+        <div className='inline-flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 text-primary mx-auto mb-2'>
+          <BookOpen className='w-5 h-5' />
+        </div>
+        <h1 className='text-3xl font-bold tracking-tight'>
+          Template Chat Koordinator
+        </h1>
+        <p className='text-muted-foreground max-w-md mx-auto'>
+          Template pesan siap pakai untuk koordinasi mata kuliah praktikum.
+        </p>
+      </div>
+      <div className='space-y-1'>
+        {TEMPLATE_CHAT_KOORDINATOR.map((template) => (
+          <ChatCard
+            key={template.title}
+            title={template.title}
+            description={template.description}
+            template={template.template}
+          />
+        ))}
+      </div>
     </div>
   );
 }
